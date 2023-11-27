@@ -19,11 +19,11 @@ export default function Csr() {
   return (
     <Container>
       <Head>
-        <title>SC V6 - CSR</title>
+        <title>SC V5 - CSR</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Nav />
-      <h1>Client-Side Rendering with styled-components v6</h1>
+      <h1>Client-Side Rendering with styled-components v5</h1>
       {isReady ? (
         <>
           <UnselectableText>
