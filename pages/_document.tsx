@@ -1,6 +1,6 @@
 import type { DocumentContext, DocumentInitialProps } from 'next/document'
 import Document from 'next/document'
-import { StyleSheetManager, ServerStyleSheet } from 'styled-components'
+import { ServerStyleSheet } from 'styled-components'
 
 export default class MyDocument extends Document {
   static async getInitialProps(
@@ -13,9 +13,7 @@ export default class MyDocument extends Document {
       ctx.renderPage = () =>
         originalRenderPage({
           enhanceApp: (App) => (props) =>
-            <StyleSheetManager sheet={sheet.instance} enableVendorPrefixes>
-              <App {...props} />
-            </StyleSheetManager>
+            sheet.collectStyles(<App {...props} />),
         })
 
       const initialProps = await Document.getInitialProps(ctx)
